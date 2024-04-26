@@ -1,0 +1,284 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            
+            background-size: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color:black;
+            font-weight: bold;
+            
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+            background-color:grey;
+        }
+
+        th {
+            background-color:white;
+        }
+
+       
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        .room-label {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        p{
+            text-align: center;
+            font-size: larger;
+            font-style: oblique;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seating Arrangement Result</title>
+</head>
+<body>
+    <h1>Seating Arrangement Result</h1>
+    <h3>Department: {{ class_name }} | Year: {{ year }}</h3>
+    {% if seating_arrangement %}
+        {% for room_name, room_data in seating_arrangement.items() %}
+            <h3>{{ room_name }}</h3>
+            <table border="1">
+                <tr>
+                    <th>Row</th>
+                    <th>Column</th>
+                    <th>Roll Number</th>
+                </tr>
+                {% for seat in room_data['seats'] %}
+                    <tr>
+                        <td>{{ seat[0] }}</td>
+                        <td>{{ seat[1] }}</td>
+                        <td>{{ seat[2] }}</td> 
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endfor %}
+    {% else %}
+        <p>No seating arrangement available.</p>
+    {% endif %}
+</body>
+</html> -->
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color: black;
+            font-weight: bold;
+        }
+
+        .room-label {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .seat-map {
+            display: flex;
+            justify-content: center;
+        }
+
+        .room {
+            margin-right: 20px;
+        }
+
+        .seat {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ccc;
+            background-color: #ddd;
+            text-align: center;
+            line-height: 30px;
+            margin: 2px;
+        }
+
+        .seat.occupied {
+            background-color: #ffcccb;
+        }
+
+        .seat.available {
+            background-color: #90ee90;
+        }
+
+        p {
+            text-align: center;
+            font-size: larger;
+            font-style: oblique;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seating Arrangement Result</title>
+</head>
+<body>
+    <h1>Seating Arrangement Result</h1>
+    <h3>Department: {{ class_name }} | Year: {{ year }} | Roll Number: {{ roll_number }}</h3>
+    {% if seating_arrangement %}
+        <div class="seat-map">
+            {% for room_name, room_data in seating_arrangement.items() %}
+                <div class="room">
+                    <h3 class="room-label">{{ room_name }}</h3>
+                    <div class="seats">
+                        {% for seat in room_data['seats'] %}
+                            <div class="seat {% if seat[2] == roll_number %}occupied{% else %}available{% endif %}">
+                                {{ seat[0] }}-{{ seat[1] }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No seating arrangement available.</p>
+    {% endif %}
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: white;
+        color: white;
+        margin: 0;
+        padding: 0;
+        position: bottom; /* Add relative positioning to the body */
+        background-image: url('https://www.oyorooms.com/blog/wp-content/uploads/2018/03/proper-seating-arrangement.jpg');
+        background-size: 100%;
+
+    }
+    
+    body::before {
+        content: ""; /* Add content for pseudo-element */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6); /* Adjust the RGBA values to change the color and opacity */
+        z-index: -1; /* Move the pseudo-element below other content */
+    }
+    
+    /* Your existing styles */
+    h1 {
+        text-align: center;
+        margin-top: 50px;
+        color:white;
+        font-weight: bold;
+    }
+    
+    .room-label {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: white;
+    }
+    
+    .seat-map {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px; 
+    }
+    
+    .room {
+        margin-right: 20px;
+        color: white;
+    }
+    
+    .seat {
+        width: 40px;
+        height: 40px;
+        border: 1px solid #ccc;
+        background-color: #ddd;
+        text-align: center;
+        line-height: 40px;
+        margin: 5px;
+        padding: 5px;
+    }
+    
+    .seat.occupied {
+        background-color:black;
+    }
+    
+    .seat.available {
+        background-color: #90ee90;
+    }
+    
+    p {
+        text-align: center;
+        font-size: larger;
+        font-style: italic;
+        margin-top: 20px;
+    }
+    
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seating Arrangement Result</title>
+</head>
+<body>
+    <h1>Seating Arrangement Result</h1>
+    <h3>Department: {{ class_name }} | Year: {{ year }} | Roll Number: {{ roll_number }}</h3>
+    {% if seating_arrangement %}
+        <div class="seat-map">
+            {% for room_name, room_data in seating_arrangement.items() %}
+                <div class="room">
+                    <h3 class="room-label">{{ room_name }}</h3>
+                    <div class="seats">
+                        {% for seat in room_data['seats'] %}
+                            <div class="seat {% if seat[2] == roll_number %}occupied{% else %}available{% endif %}">
+                                {{ seat[0] }} - {{ seat[1] }} {% if seat[2] == roll_number %}{% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No seating arrangement available.</p>
+    {% endif %}
+</body>
+</html>
+
