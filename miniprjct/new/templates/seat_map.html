@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seat Map</title>
+    <style>
+        .seat {
+            width: 30px;
+            height: 30px;
+            border: 1px solid black;
+            display: inline-block;
+            margin: 5px;
+            text-align: center;
+            line-height: 30px;
+        }
+        .occupied {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Seat Map for {{ class_name }} - {{ year }}</h1>
+    {% for room_name, seats in seat_map_data.items() %}
+        <h2>Room: {{ room_name }}</h2>
+        <div>
+            {% for seat in seats %}
+                <div class="seat {% if seat.roll_number %}occupied{% endif %}">
+                    {% if seat.roll_number %}
+                        {{ seat.roll_number }}
+                    {% else %}
+                        -
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</body>
+</html>

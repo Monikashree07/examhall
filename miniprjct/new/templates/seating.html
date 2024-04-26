@@ -1,0 +1,222 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://png.pngtree.com/background/20230426/original/pngtree-empty-exam-hall-at-uniqlo-new-york-city-picture-image_2480803.jpg');
+            background-size: 100%;
+            background-position: full;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color:violet;
+        }
+
+        form {
+            width: 50%;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.7); /* Adding transparency to the form background */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Hall Seating Arrangement</title>
+</head>
+<body>
+    <h1>Welcome to Exam Hall Seating Arrangement System</h1>
+    <form action="/seating" method="post">
+        <label for="class_name">Department Name:</label>
+        <input type="text" id="class_name" name="class_name" required><br><br>
+        
+       
+        <label for="year">Year:</label>
+        <input type="number" id="year" name="year" required><br><br>
+
+        <label for="room_from">Room Number From:</label>
+        <input type="number" id="room_from" name="room_from" required><br><br>
+        
+        <label for="room_to">Room Number To:</label>
+        <input type="number" id="room_to" name="room_to" required><br><br>
+        
+        <label for="roll_from">Roll Number From:</label>
+        <input type="number" id="roll_from" name="roll_from" required><br><br>
+        
+        <label for="roll_to">Roll Number To:</label>
+        <input type="number" id="roll_to" name="roll_to" required><br><br>
+        
+        <label for="rows_per_room">Rows per Room:</label>
+        <input type="number" id="rows_per_room" name="rows_per_room" required><br><br>
+        
+        <label for="cols_per_room">Columns per Room:</label>
+        <input type="number" id="cols_per_room" name="cols_per_room" required><br><br>
+        
+        <input type="submit" value="Generate Seating Arrangement">
+    </form>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://png.pngtree.com/background/20230426/original/pngtree-empty-exam-hall-at-uniqlo-new-york-city-picture-image_2480803.jpg');
+            background-size: 100%;
+            background-position: full;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color: violet;
+        }
+
+        form {
+            width: 40%;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.7); /* Adding transparency to the form background */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        select{
+            width: calc(100% - 10px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Hall Seating Arrangement</title>
+</head>
+<body>
+    <h1>Welcome to Exam Hall Seating Arrangement System</h1>
+    <form action="/seating" method="post">
+        <!-- <label for="class_name">Department Name:</label>
+        <input type="text" id="class_name" name="class_name" required><br><br> -->
+
+        <label for="class_name">Department Name:</label>
+     <select id="class_name" name="class_name" required>
+    <option value="IT">IT</option>
+    <option value="CSE">CSE</option>
+    <option value="ECE">ECE</option>
+    <option value="EEE">EEE</option>
+    <option value="BME">BME</option>
+    <option value="AIDS">AIDS</option>
+    <option value="RA">RA</option>
+    <option value="EIE">EIE</option>
+    <option value="MECH">MECH</option>
+    <!-- Add more options as needed -->
+    </select><br><br>
+
+
+        <label for="year">Year:</label>
+        <input type="number" id="year" name="year" required><br><br>
+
+        <label for="room_from">Room Number From:</label>
+        <input type="text" id="room_from" name="room_from" required><br><br>
+        
+        <label for="room_to">Room Number To:</label>
+        <input type="text" id="room_to" name="room_to" required><br><br>
+        
+        <label for="roll_from">Roll Number From:</label>
+        <input type="number" id="roll_from" name="roll_from" required><br><br>
+        
+        <label for="roll_to">Roll Number To:</label>
+        <input type="number" id="roll_to" name="roll_to" required><br><br>
+        
+        <label for="rows_per_room">Rows per Room:</label>
+        <input type="number" id="rows_per_room" name="rows_per_room" required><br><br>
+        
+        <label for="cols_per_room">Columns per Room:</label>
+        <input type="number" id="cols_per_room" name="cols_per_room" required><br><br>
+        
+        <input type="submit" value="Generate Seating Arrangement">
+    </form>
+</body>
+</html>
+
